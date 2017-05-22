@@ -1,0 +1,45 @@
+<div id="material-modal" class="modal modal-fixed-footer" tabindex="-1" ng-esc="close()" ng-enter="submit()">
+  <div class="modal-content">
+    <h4 class="modal-title">New Event</h4>
+    <div class="modal-content-body">
+      <form name="newItemForm" novalidate>
+        <div class="row">
+          <h5>Event Title*</h5>
+          <div class="input-field red-input col s6">
+            <input type="text" name="title" class="focus-first" ng-model="newItem.title" placeholder="Shift A" required autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <h5>Type</h5>
+          <div class="input-field col s12">
+            <select ng-model="newItem.type">
+              <option value="{{type}}" ng-repeat="type in types">{{type}}</option>
+          </select>
+          <label>Materialize Select</label>
+        </div>
+        </div>
+        <div class="row">
+          <h5>Description</h5>
+          <div class="input-field red-input col s6">
+            <input type="text" name="description" ng-model="newItem.description" placeholder="Description" autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <h5>Time Range*</h5>
+          <div class="input-field red-input col s6">
+            <input type="datetime-local" id="startTime" name="startTime" ng-model="newItem.start_time" required autocomplete="off" />
+            <label for="startTime" class="active">Start Time</label>
+          </div>
+          <div class="input-field red-input col s6">
+            <input type="datetime-local" id="endTime" name="endTime" ng-model="newItem.end_time" required autocomplete="off" />
+            <label for="endTime" class="active">End Time</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="waves-effect waves-green btn-flat" ng-click="submit()" ng-disabled="newItemForm.$invalid">Submit</button>
+    <button class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="close()">Cancel</button>
+  </div>
+</div>

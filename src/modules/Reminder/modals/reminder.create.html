@@ -1,0 +1,58 @@
+<div id="material-modal" class="modal modal-fixed-footer" tabindex="-1" ng-esc="close()" ng-enter="submit()">
+  <div class="modal-content">
+    <h4 class="modal-title">New Reminder</h4>
+    <div class="modal-content-body">
+      <form name="newItemForm" novalidate>
+        <div class="row">
+          <h6>Title*</h6>
+          <div class="input-field red-input">
+            <input type="text" class="focus-first" ng-model="newItem.title" placeholder="Kronos Sign-out" required />
+          </div>
+        </div>
+        <div class="row">
+          <h6>Apply to Group*</h6>
+          <div class="input-field red-input">
+            <input type="text" ng-model="newItem.applyTo" placeholder="Staff" required />
+          </div>
+        </div>
+        <div class="row">
+          <h6>Description*</h6>
+          <div class="input-field red-input">
+            <input type="text" ng-model="newItem.description" placeholder="Remind staff to sign out" required />
+          </div>
+        </div>
+        <div class="section row">
+          <h5>Event</h5>
+          <div class="col s1">
+
+          </div>
+          <div class="col s11">
+            <div class="row">
+              <h6>Event Trigger*</h6>
+              <div class="input-field red-input">
+                <input type="text" ng-model="newItem.event.fireOn" placeholder="shift Start OR 1:00pm" required />
+              </div>
+            </div>
+            <div class="row">
+              <h6>Time Offset</h6>
+              <div class="input-field red-input">
+                <input type="text" ng-model="newItem.event.offset" placeholder="10 minutes" required />
+              </div>
+            </div>
+            <div class="row">
+              <h6>Repeating</h6>
+              <div class="input-field red-input">
+                <input id="modal-checkbox-repeat" type="checkbox" class="filled-in red lighten-2" ng-model="newItem.event.repeating" placeholder="10 minutes" />
+                <label for="modal-checkbox-repeat">Repeat</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="waves-effect waves-green btn-flat" ng-click="submit()" ng-disabled="newItemForm.$invalid">Submit</button>
+    <button class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="close()">Cancel</button>
+  </div>
+</div>

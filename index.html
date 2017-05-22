@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="resdesk">
+
+<head>
+  <base href="/" />
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title ng-if="false">ResDesk</title>
+  <title ng-if="true">ResDesk | {{$state.current.data.friendlyName}}</title>
+  
+  <link rel=icon href="./assets/images/Logo_favicon.png" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+
+  <!-- Stylesheets -->
+  <link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet" type="text/css" />
+
+  <link href="./node_modules/fullcalendar/dist/fullcalendar.css" rel="stylesheet" type="text/css" />
+
+  <link href="./dist/app.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="grey lighten-5">
+  <!-- Loading Screen -->
+  <div class="loading-screen" ng-animate-children load-complete="$root.initialLoadComplete">
+    <link href="./dist/components.loadingScreen.css" rel="stylesheet" />
+    <div class="animated-container">
+      <div class="circle-wrapper">
+        <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <h2 class="animate-fade-in">Loading...</h2>
+      </div>
+    </div>
+  </div>
+  <!-- End Loading Screen -->
+
+  <!-- Sidebar / Navbar -->
+  <header>
+    <navigation></navigation>
+  </header>
+  <!-- End Sidebar / Navbar -->
+  <main>
+    <div ui-view></div>
+  </main>
+
+  <footer>
+
+  </footer>
+  <!-- ****** Scripts ****** -->
+  <!-- Modules -->
+  <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="./node_modules/materialize-css/dist/js/materialize.js" type="text/javascript"></script>
+  <script src="./node_modules/angular/angular.js" type="text/javascript"></script>
+  <script src="./node_modules/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+  <script src="./node_modules/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
+  <script src="./node_modules/angular-jwt/dist/angular-jwt.js" type="text/javascript"></script>
+  <script src="./node_modules/moment/min/moment.min.js" type="text/javascript"></script>
+  <script src="./node_modules/fullcalendar/dist/fullcalendar.min.js" type="text/javascript"></script>
+  <script src="./node_modules/angular-http-cancellable/dist/angular-http-cancellable.min.js" type="text/javascript"></script>
+
+  <!-- Angular App -->
+  <script src="./dist/app.js"></script>
+</body>
+
+</html>

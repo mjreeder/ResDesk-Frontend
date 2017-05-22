@@ -1,0 +1,17 @@
+<div id="footer-modal" class="modal bottom-sheet" tabindex="-1" ng-esc="markFoundModal.cancel()" ng-enter="markFoundModal.submit()">
+  <div class="modal-content">
+    <h4>Returned Item</h4>
+    <form name="returnedToForm" novalidate>
+      <div class="row">
+        <h6>Returned To*</h6>
+        <div class="input-field red-input">
+          <textarea type="text" class="materialize-textarea focus-first" ng-model="markFoundModal.returnedTo" placeholder="Jon Appleseed" required ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-disabled="returnedToForm.$invalid" ng-click="markFoundModal.submit()">Submit</a>
+    <a class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="markFoundModal.cancel()">Cancel</a>
+  </div>
+</div>

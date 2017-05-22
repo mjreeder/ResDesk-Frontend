@@ -1,0 +1,16 @@
+<div class="card card-expandable upscale-flex-item comm-card">
+  <div class="card-content grey-text">
+    <h3 class="card-title">{{message.title}} </h3>
+    <div class="row card-from">Sent by {{sentBy}} at {{message.createdAt | date: 'short'}}</div>
+    <div class="card-delete" ng-if="$user.isAdmin()">
+      <button type="button" class="btn btn-flat btn-circle waves-effect waves-red" ng-click="deleteMessage(message)"><i class="material-icons">delete</i></button>
+    </div>
+    <div class="card-to tooltipped">
+      <i class="material-icons">info_outline</i>
+    </div>
+    <p>{{message.body}}</p>
+    <span class="edit-card" ng-if="$user.ownedByThisUser(message)">
+      <button type="button" class="btn btn-flat btn-circle waves-effect waves-light" ng-click="editMessage(message)"><i class="material-icons">edit</i></button>
+    </span>
+  </div>
+</div>

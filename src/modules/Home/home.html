@@ -1,0 +1,19 @@
+<div class="home-body content-body">
+  <h1>Welcome to ResDesk</h1>
+
+  <div class="row">
+    <div class="col offset-s1 s11">
+      <h4 ng-if="$user.unreadNotifications > 0"><a ui-sref="Notifications">You have {{$user.unreadNotifications}} unread notifications</a></h4>
+      <h4 ng-if="$user.unreadNotifications == 0">You have no notifications to read 👍</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col offset-s1 s11">
+      <h4>There are {{$user.unreadNotifications}} message(s) to read in the <a ui-sref="CommLog">Communication Log</a>.</h4>
+    </div>
+  </div>
+
+
+
+</div>

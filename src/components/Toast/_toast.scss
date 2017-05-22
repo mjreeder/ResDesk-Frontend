@@ -1,0 +1,28 @@
+#toast-container {
+  .toast {
+    //Materialize default
+    //background-color: #323232;
+    > span {
+      font-weight: 500;
+      color: white;
+    }
+    
+    &.normal {
+      > span {
+        color: white;
+      }
+    }
+    &.warning {
+      background-color: color('amber', 'darken-3');
+      > span {
+        color: white;
+      }
+    }
+    &.error {
+      background-color: color('red', 'darken-2');
+      > span {
+        color: white;
+      }
+    }
+  }
+}

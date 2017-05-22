@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+  color: $blue-grey-darken-3;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  z-index: 0;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+/**
+* Fixes issue with fixed sidebar
+**/
+
+header,
+main,
+footer {
+  padding-left: $sidebar-width;
+}
+
+header,
+footer {
+  z-index: 1;
+  position: relative;
+}
+
+main {
+  z-index: 0;
+  position: relative;
+}
+
+.page-title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  cursor: default;
+}
+
+*[ui-view] {
+  z-index: z(body);
+  &.ng-enter {
+    /* transition on enter for .5s */
+    transition: .5s;
+    /* start with opacity 0 (invisible) */
+    opacity: 0;
+  }
+  /* end 'enter' transition */
+  &.ng-enter-active {
+    /* end with opacity 1 (fade in) */
+    opacity: 1;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  $abs-position-margin: 2rem;
+  position: absolute;
+  &.top {
+    top: $abs-position-margin;
+    &.right {
+      right: $abs-position-margin;
+    }
+    &.left {
+      left: $abs-position-margin;
+    }
+    &.zero {
+      top: 0;
+      &.right {
+        right: 0;
+      }
+      &.left {
+        left: 0;
+      }
+    }
+  }
+  &.bottom {
+    bottom: $abs-position-margin;
+    &.right {
+      right: $abs-position-margin;
+    }
+    &.left {
+      left: $abs-position-margin;
+    }
+    &.zero {
+      bottom: 0;
+      &.right {
+        right: 0;
+      }
+      &.left {
+        left: 0;
+      }
+    }
+  }
+  &.right {
+    right: $abs-position-margin;
+    &.zero {
+      right: 0;
+    }
+  }
+  &.left {
+    left: $abs-position-margin;
+    &.zero {
+      right: 0;
+    }
+  }
+}
+
+.spacer {
+  display: block;
+  height: 30px;
+}
+
+.content-body {
+  z-index: z(body);
+  padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  .card-title {
+    margin-top: 0px;
+    display: inline-block;
+  }
+}
+
+.material-tooltip {
+  max-width: 350px;
+  span {
+    color: white;
+  }
+}
+
+.function-bar {
+  padding: 0.5rem 1rem;
+  .input-field {
+    display: inline-block;
+    margin: auto 15px;
+    vertical-align: middle;
+    //    min-width: 200px;
+    input[type="search"] {
+      min-width: 400px;
+      &:focus {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+  .row .col {
+    .input-field {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .input-field {
+      display: block;
+      margin: 5px auto;
+      >.btn,
+      >button,
+      >input[type="button"] {
+        display: block;
+        width: 60%;
+        margin: auto auto;
+      }
+      input[type="search"] {
+        min-width: inherit;
+      }
+    }
+  }
+  form>* {
+    margin: auto 15px;
+  }
+  &.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
+    &>.input-field {
+      flex-basis: 200px;
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin: 5px;
+      max-width: 400px;
+      &>* {
+        display: block;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      &>.input-field {
+        flex-basis: 200px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        margin: 5px;
+        &>* {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.theme-dark {
+  background-color: color('blue-grey', 'darken-3');
+  &:hover,
+  &:focus {
+    background-color: color('blue-grey', 'darken-3');
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.max-width-600 {
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+  .page-title {
+    margin-left: 30px;
+  }
+  .content-body {
+    padding: 5px;
+  }
+}

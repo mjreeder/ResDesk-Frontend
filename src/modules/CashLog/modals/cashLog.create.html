@@ -1,0 +1,72 @@
+<div id="material-modal" class="modal modal-fixed-footer" tabindex="-1" ng-esc="close()" ng-enter="submit()">
+  <div class="modal-content">
+    <h4 class="modal-title">Update Cash Count</h4>
+    <div class="modal-content-body">
+      <form name="newItemForm" novalidate>
+        <div class="row">
+          <div class="input-field red-input col s6">
+            <h5>Cash</h5>
+            <input type="number" name="cash" class="focus-first" ng-model="newItem.cash" placeholder="16.00" min="0" step="1.0" required autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <h5>Coins</h5>
+        </div>
+        <div class="row">
+          <div class="input-field red-input col s3">
+            <input type="number" name="quarters" ng-model="newItem.quarters" min="0" step="0.25" placeholder="6.50" required autocomplete="off" />
+            <label for="quarters" ng-class="newItem.quarters != undefined ? 'active':''">Quarters</label>
+          </div>
+          <div class="input-field red-input col s3">
+            <input type="number" name="dimes" ng-model="newItem.dimes" min="0" step="0.10" placeholder="2.10" required autocomplete="off" />
+            <label for="dimes" ng-class="newItem.dimes != undefined ? 'active':''">Dimes</label>
+          </div>
+          <div class="input-field red-input col s3">
+            <input type="number" name="nickels" ng-model="newItem.nickels" min="0" step="0.05" placeholder="1.05" required autocomplete="off" />
+            <label for="nickels" ng-class="newItem.nickels != undefined ? 'active':''">Nickels</label>
+          </div>
+          <div class="input-field red-input col s3">
+            <input type="number" name="pennies" ng-model="newItem.pennies" min="0" step="0.01" placeholder="0.41" required autocomplete="off" />
+            <label for="pennies" ng-class="newItem.pennies != undefined ? 'active':''">Pennies</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field red-input col s6">
+            <h5>Found</h5>
+            <input type="number" name="found" ng-model="newItem.found" placeholder="2.00" min="0" step="0.01" required autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field red-input col s6">
+            <h5>Stamp Count</h5>
+            <input type="number" name="stamps" ng-model="newItem.stamps" placeholder="3" min="0" step="1" required autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field red-input col s6">
+            <h5>Postage Due</h5>
+            <input type="number" name="postage" ng-model="newItem.postageDue" placeholder="-0.47" step="0.01" required autocomplete="off" />
+          </div>
+        </div>
+        <div class="row">
+          <h5>Refunds</h5>
+        </div>
+        <div class="row">
+          <div class="input-field red-input col s6">
+            <input type="number" name="laundry" ng-model="newItem.laundryRefunds" placeholder="1.50" min="0" step="0.25" required autocomplete="off" />
+            <label for="laundry" ng-class="newItem.laundryRefunds != undefined ? 'active':''">Laundry</label>
+          </div>
+          <div class="input-field red-input col s6">
+            <input type="number" name="vending" ng-model="newItem.vendingRefunds" placeholder="2.50" min="0" step="0.25" required autocomplete="off" />
+            <label for="vending" ng-class="newItem.vendingRefunds != undefined ? 'active':''">Vending</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <span class="footer-text">Total: {{ calculateTotal() | currency: $}}</span>
+    <button type="button" class="waves-effect waves-green btn-flat" ng-click="submit()" ng-disabled="newItemForm.$invalid">Submit</button>
+    <button class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="close()">Cancel</button>
+  </div>
+</div>

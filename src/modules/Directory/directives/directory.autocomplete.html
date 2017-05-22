@@ -1,0 +1,10 @@
+<div class="input-field red-input">
+  <i class="material-icons prefix" ng-show="!loading">account_circle</i>
+  <loading-indicator class="prefix" size="small" ng-show="loading"></loading-indicator>
+  <input class="dir-autocomplete red-input" id="{{!unique ? 'dir-autocomplete':'dir-autocomplete-'+unique}}" type="text" ng-blur="blurLabel()" ng-model="searchText" placeholder="" ng-required="requiredField" ng-change="searchChange()" autocomplete="off" />
+  <label for="{{!unique ? 'dir-autocomplete':'dir-autocomplete-'+unique}}">Search Directory (min length 3)</label>
+  <ul class="dir-autocomplete-options z-depth-2" ng-show="searchResults != null">
+    <li class="option waves-effect waves-dark" ng-repeat="opt in searchResults" ng-click="onSelect(opt)">{{opt.name}}</li>
+    <li ng-if="searchResults && searchResults.length == 0" class="option disabled" >No Items Found</li>
+  </ul>
+</div>

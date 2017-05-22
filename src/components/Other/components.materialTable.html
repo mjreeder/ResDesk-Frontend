@@ -1,0 +1,28 @@
+<table id="material-table" class="responsive-table striped">
+  <thead>
+    <tr>
+      <th ng-repeat="field in tableData.headers" data-field="{{field.name}}" class="noselect" ng-click="sortTo(field.short)" ng-if="!field.hidden" ng-class="{'active': field.short == sortBy, 'active-reverse': '-'+field.short == sortBy, 'sortable': field.sortable}"><i ng-if="field.sortable" class="filter-arrow"></i>{{field.name}}</th>
+    </tr>
+  </thead>
+
+  <tbody ng-if="!customFilter">
+    <tr ng-repeat="row in tableData.data | filter:filterBy | orderBy:sortBy" ng-click="rowClickAction(row)" ng-class="{'clickable': rowClickAction != undefined}">
+      <td ng-repeat="(key, field) in row" ng-if="showColumn(key)" ng-class="bodyCellNgClassFunc(key, field)">{{field.value | dynamicFilter:field.format}}</td>
+    </tr>
+    <tr ng-if="tableData.data.length == 0">
+      <td colspan="100%" class="center-align"><i>Looks like there's no data to show</i></td>
+    </tr>
+  </tbody>
+
+
+  <tbody ng-if="customFilter == 'dateRange'">
+    <tr ng-repeat="row in tableData.data | dateRange:filterBy[0]:filterBy[1] | orderBy:sortBy" ng-click="rowClickAction(row)" ng-class="{'clickable': rowClickAction != undefined}">
+      <td ng-repeat="(key, field) in row" ng-if="showColumn(key)" ng-class="bodyCellNgClassFunc(key, field)">{{field.value | dynamicFilter:field.format}}</td>
+    </tr>
+    <tr ng-if="tableData.data.length == 0">
+      <td colspan="100%" class="center-align"><i>Looks like there's no data to show</i></td>
+    </tr>
+  </tbody>
+
+
+</table>

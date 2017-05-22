@@ -1,0 +1,52 @@
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .btn-#{$color_name} {
+        background-color: rgba($color_value, 0.2);
+        &:hover {
+//          background-color: rgba($color_value, 0.35);
+        }
+      }
+      .btn-flat.btn-#{$color_name} {
+        background-color: rgba($color_value, 0.2);
+        &:hover {
+          background-color: rgba($color_value, 0.35);
+        }
+      }
+    }
+    @else if $color_name != "shades" {
+      .btn-#{$color_name} {
+        background-color: $color_value;
+        &:hover {
+//          background-color: rgba($color_value, 0.35);
+        }
+      }
+      .btn-flat.btn-#{$color_name}.#{$color_type} {
+        background-color: $color_value;
+        &:hover {
+          background-color: rgba($color_value, 0.35);
+        }
+      }
+    }
+  }
+}
+
+.btn-circle {
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+  line-height: 2rem;
+  border-radius: 50%;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.focus-outline {
+  &:focus, *:focus {
+    outline-color: $red-lighten-2;
+    outline-style: solid;
+    outline-width: thin;
+  }
+}

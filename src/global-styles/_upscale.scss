@@ -1,0 +1,80 @@
+$upscale-sidebar-width: 300px;
+//apply these upscale rules for large non-retina screens
+//otherwise wait for larger screen width
+@media only screen and (min-width: 1200px) and (-webkit-max-device-pixel-ratio: 2) and (max-resolution: 191dpi),
+only screen and (min-width: 1500px) and (-webkit-max-device-pixel-ratio: 2) and (max-resolution: 192dpi) {
+  header {
+    padding-left: $upscale-sidebar-width;
+    nav.top-nav div.container {
+      padding-left: 40px;
+      .current-page {
+        font-size: 20px;
+      }
+    }
+    .side-nav {
+      width: $upscale-sidebar-width;
+      .user {
+        .userView {
+          height: 300px;
+          .notifications::after {
+            height: 12px;
+            width: 12px;
+            font-size: 12px;
+            line-height: 12px;
+          }
+        }
+      }
+    }
+  }
+  main {
+    padding-left: $upscale-sidebar-width;
+    form div.input-field {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 800px;
+    }
+    .upscale-flex-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: flex-start;
+      .upscale-flex-item {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 48%;
+        margin: 10px auto;
+        transition-duration: 0.2s;
+        min-width: 300px;
+      }
+      &.no-stretch {
+//        align-items: center;
+      }
+    }
+  }
+  
+  directory-autocomplete {
+    .input-field {
+      loading-indicator {
+        top: 25px;
+        left: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  main .upscale-flex-container {
+    .upscale-flex-item {
+      flex-basis: 33%;
+    }
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  main .upscale-flex-container {
+    .upscale-flex-item {
+      flex-basis: 24%;
+    }
+  }
+}

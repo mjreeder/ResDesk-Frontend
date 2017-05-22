@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>Unauthorized</title>
+
+  <link rel=icon href="./assets/images/Logo_favicon.png" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+
+  <!-- Stylesheets -->
+  <link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    
+    main {
+      flex: 1 0 auto;
+    }
+    
+    h1 {
+      margin: 0.5rem 0 auto 0;
+      line-height: 100%;
+      font-size: 3rem;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+    }
+    
+    p {
+      margin: auto;
+    }
+    
+    li {
+      margin: 10px auto;
+    }
+  </style>
+
+</head>
+
+<body class="grey lighten-5">
+
+  <header>
+    <div class="navbar-fixed">
+      <nav class="red darken-3">
+        <div class="nav-wrapper">
+          <h1 class="center-align">Unauthorized</h1>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="center-align">
+    <h2>You can't access that page</h2>
+    <ul>
+      <li>
+        <p class="flow-text">If you just clicked logout and landed here, then you've logged out!</p>
+      </li>
+      <li>
+        <p class="flow-text">If you didn't, then you probably need to log in to use this application.</p>
+        <ul>
+          <!-- Development -->
+          <li><a href="http://localhost:10018/profile/login?q=test.admin">Click Here to Login</a></li>
+          <!-- Production -->
+<!--          <li><a href="SOME URL">Click Here to Login</a></li>-->
+        </ul>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="page-footer red darken-3">
+    <div class="container">
+      <div class="footer-copyright">
+        <div class="container center-align"> &copy; 2017 ResDesk </div>
+      </div>
+  </footer>
+</body>
+
+</html>

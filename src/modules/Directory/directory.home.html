@@ -1,0 +1,38 @@
+<div class="dir-body content-body">
+  <div class="dir-header function-bar">
+    <form>
+      <div class="input-field ">
+        <input id="search" type="search" ng-model="search" ng-change="searchChange(search)" required autocomplete="off">
+        <label for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons" ng-click="clearSearch()">close</i>
+      </div>
+    </form>
+  </div>
+  <div class="divider"></div>
+  <div class="dir-card-wrapper upscale-flex-container" ng-if="searchResults != null && searchResults.length > 0">
+    <div class="card upscale-flex-item hover-float" ng-repeat="person in searchResults">
+      <div class="card-content grey-text">
+        <h3 class="card-title">{{person.name}}</h3>
+        <span class="right card-from">BSU ID: {{person.id}}</span>
+        <div class="contact-info">
+          <p><a href="mailto:{{person.email}}">{{person.email}}</a></p>
+          <p ng-if="person.cell != null ">Cell: {{person.cell}}</p>
+        </div>
+        <div class="housing-info">
+          <p>{{person.housing.hall}}</p>
+          <p ng-if="person.housing.room != null ">Room: {{person.housing.room}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row empty-search" ng-if="!search">
+    <p>Begin searching to load results</p>
+  </div>
+  <div class="row no-results" ng-if="searchResults.length == 0">
+    <p>No results found for '{{search}}'</p>
+  </div>
+  <div class="row no-results" ng-if="search.length < 3">
+    <p>Search text must be at least 3 characters long</p>
+  </div>
+  <loading-indicator ng-if="loading" size="big"></loading-indicator>
+</div>

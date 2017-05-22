@@ -1,0 +1,53 @@
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+ul.sub-nav {
+  width: 100%;
+  margin-top: 0;
+  animation-duration: 0.6s;
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+  animation-direction: normal;
+  z-index: z(subnav);
+}
+
+.tabs {
+  display: flex;
+  .indicator {
+    background-color: $red;
+  }
+  .tab {
+    flex-grow: 1;
+    a {
+      color: $red;
+      &.active {
+        border-bottom: 2px solid $red;
+      }
+      &:hover {
+        color: $red-lighten-2;
+      }
+    }
+  }
+}
+
+.subnav-fixed {
+  position: relative;
+  height: 48px;
+  .sub-nav {
+    position: fixed;
+    background-color: $background-white;
+    z-index: z(subnav);
+    width: calc(100% - #{$sidebar-width});
+  }
+  @media screen and (max-width: 992px) {
+    .sub-nav {
+      width: 100%;
+    }
+  }
+}

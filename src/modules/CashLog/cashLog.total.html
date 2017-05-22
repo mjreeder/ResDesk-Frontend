@@ -1,0 +1,20 @@
+<div class="content-body cash-log-body">
+  <div class="function-bar flex">
+    <div class="input-field">
+      <a class="waves-effect waves-light btn green darken-2 center" ng-click="update()"><i class="material-icons left white-text">update</i>New/Update</a>
+    </div>
+    <div class="input-field">
+      <a class="waves-effect waves-light btn yellow darken-2 center" ng-click="refund()"><i class="material-icons left white-text">keyboard_return</i>Refund</a>
+    </div>
+    <div class="input-field">
+      <a class="waves-effect waves-light btn light-blue darken-2 center" ng-click="postage()"><i class="material-icons left white-text">local_post_office</i>Postage Due</a>
+    </div>
+  </div>
+  <div class="total-table">
+    <material-table table-data="tableData" body-cell-ng-class-func="ngClassFilter" row-click-action="rowClick"></material-table>
+  </div>
+  <div class="row">
+    <h6 class="expected-total">Expected Total: {{tableData.defaultCash | currency: $}}</h6>
+  </div>
+  <loading-indicator size="large" ng-if="loading"></loading-indicator>
+</div>

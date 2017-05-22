@@ -1,0 +1,28 @@
+<div class="comm-body content-body">
+  <div class="comm-header function-bar">
+    <form>
+      <div class="row input-field">
+        <a class="waves-effect waves-light btn green darken-2" ng-click="newMessage()"><i class="material-icons left white-text" ng-click="clearSearch()">add</i>New Message</a>
+      </div>
+      <div class="input-field ">
+        <input id="search" type="search" ng-model="commSearch" ng-change="searchChange(commSearch)" required autocomplete="off">
+        <label for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons" ng-click="commSearch = ''">close</i>
+      </div>
+    </form>
+  </div>
+  <div class="divider"></div>
+
+  <div class="comm-messages-wrapper upscale-flex-container no-stretch">
+    <div ng-if="filteredMessages.length == 0" class="row center-align">
+      <p><i>No Messages</i></p>
+    </div>
+    <comm-message ng-repeat="message in filteredMessages | filter: commSearch | orderBy: message.timestamp : reverse" message="message" edit="editMessage" delete="deleteMessage"></comm-message>
+    <loading-indicator size="small" ng-if="loading"></loading-indicator>
+  </div>
+  <div class="row more">
+    <div class="col s12">
+      <button class="btn red lighten-2 waves-effect waves-light full-width max-width-600 load-more" ng-click="loadAllMessages()" ng-if="!showingAll">Load More</button>
+    </div>
+  </div>
+</div>

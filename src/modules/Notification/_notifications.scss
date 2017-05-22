@@ -1,0 +1,51 @@
+$unread-icon-size: 12px;
+.notification-body {
+  .notification-messages-wrapper {
+    padding: 10px;
+    .card {
+      &.unread {
+        .card-content .left-pane .read-icon {
+          border: 1px solid transparent;
+          background-color: color('light-blue', 'base');
+        }
+      }
+      .card-content {
+//        padding: 0px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: flex-start;
+        .left-pane {
+          order: 1;
+          flex-basis: 50px;
+          flex-grow: 0;
+          flex-shrink: 0;
+          height: 100%;
+          display: block;
+          position: relative;
+          .read-icon {
+            cursor: pointer;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            height: $unread-icon-size;
+            width: $unread-icon-size;
+            border-radius: 100%;
+            border: 1px solid color('light-blue', 'base');
+            background-color: transparent;
+            transition: border ease-in-out 0.3s, background ease-in-out 0.3s;
+          }
+        }
+        .right-pane {
+          order: 2;
+          flex-basis: auto;
+          flex-grow: 1;
+          flex-shrink: 1;
+          position: relative;
+          display: block;
+        }
+      }
+    }
+  }
+}

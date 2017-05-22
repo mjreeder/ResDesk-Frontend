@@ -1,0 +1,32 @@
+<div id="material-modal" class="modal modal-fixed-footer" tabindex="-1" ng-esc="close()" ng-enter="submit()">
+  <div class="modal-content">
+    <h4 class="modal-title">New Lost &amp; Found Item</h4>
+    <span class="absolute top right">
+      <loading-indicator size="small" ng-if="loading"></loading-indicator>
+    </span>
+    <div class="modal-content-body">
+      <form name="newItemForm" novalidate>
+        <div class="row">
+          <h6>Item Name*</h6>
+          <div class="input-field red-input">
+            <input type="text" class="focus-first" ng-model="newItem.item" placeholder="iPhone 6S" required />
+          </div>
+        </div>
+        <div class="row">
+          <h6>Is the item identifiable?</h6>
+          <directory-autocomplete model="newItem.resident" on-autocomplete="selectResident" required-field="false"></directory-autocomplete>
+        </div>
+        <div class="row">
+          <h6>Additional Info/Comments</h6>
+          <div class="input-field red-input">
+            <input type="text" ng-model="newItem.comments" placeholder="Light blue case" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="waves-effect waves-green btn-flat" ng-click="create()" ng-disabled="newItemForm.$invalid">Create</button>
+    <button class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="close()">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+calendar {
+  .fc-button-group {
+    > * {
+      background-position: initial;
+      z-index: initial;
+      background-color: initial;
+      transition-property: initial;
+      transition-timing-function: initial;
+      background-repeat: initial;
+      background-image: initial;
+      border-radius: 1px !important;
+      border: none;
+      transition: 0.3s;
+    }
+    //    .fc-button {
+    //        background-color: $gray3;
+    //    }
+    .fc-state-default {
+      background-color: $blue-grey-lighten-2;
+      transform: translateZ(0);
+      &:hover {
+        background-color: lighten($blue-grey-lighten-2, 10%);
+      }
+      &:active {
+        background-color: darken($blue-grey-lighten-2, 10%);
+      }
+    }
+    .fc-state-active {
+      background-color: darken($blue-grey-lighten-2, 10%);
+    }
+  }
+  
+  .fc-time-grid-container.fc-scroller {
+    height: auto !important;
+  }
+  
+  .fc-unthemed .fc-today {
+    background-color: color('yellow', 'lighten-5');
+  }
+  
+  .fc-now-indicator {
+    border-right-color: color('red', 'darken-2');
+    border-left-color: color('red', 'darken-2');
+    
+    .fc-now-indicator-line {
+      border-color: color('red', 'darken-2') !important;
+    }
+  }
+  
+  /* Fix month view display */
+  .fc-month-view .fc-scroller.fc-day-grid-container {
+    height: auto !important;
+  }
+  
+}

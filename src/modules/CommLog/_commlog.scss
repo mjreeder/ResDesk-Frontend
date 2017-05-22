@@ -1,0 +1,37 @@
+.comm-body {
+  .comm-header {
+    display: block;
+    width: 100%;
+  }
+  .comm-messages-wrapper {
+    padding: 10px;
+    .card {
+      .card-from {
+        font-weight: 200;
+      }
+      .card-to {
+        font-weight: 100;
+        font-size: 1rem;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+      .edit-card {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (-webkit-max-device-pixel-ratio: 2) and (max-resolution: 191dpi),
+only screen and (min-width: 1500px) and (-webkit-max-device-pixel-ratio: 2) and (max-resolution: 192dpi) {
+  .more .load-more {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+  }
+}
+
+@import "./directives/comm.message";

@@ -1,0 +1,63 @@
+#material-modal {
+  z-index: z(modal);
+  transition: width 0.3s, height 0.3s;
+  .modal-content {
+    .modal-title {
+      margin-bottom: 2rem;
+    }
+    .modal-content-body {}
+  }
+  .modal-footer {
+    .btn, .btn-flat {
+      margin: auto 10px;
+    }
+    .footer-text {
+      line-height: 56px;
+      text-indent: 8px;
+      color: #343434;
+      height: 56px;
+    }
+  }
+}
+/* background overlay used with modals and such */
+
+.lean-overlay {
+  z-index: z(overlay) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #material-modal {
+    width: 88%;
+    height: 88%;
+    max-height: 88%;
+    top: 6% !important;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  #material-modal .modal-footer {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
+    align-content: space-between;
+    padding: 5px;
+    height: auto;
+    
+    div, span {
+      flex-basis: calc(100%);
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 100%;
+      font-size: 1.2rem;
+    }
+    
+    button {
+      margin: 2px !important;
+      flex-basis: calc(50% - 4px);
+      flex-grow: 1;
+      flex-shrink: 1;
+      float: none !important;
+    }
+    
+  }
+}

@@ -1,0 +1,7 @@
+<div class="row relative" ng-repeat="item in to track by $index">
+  <div class="input-field red-input col s11">
+    <directory-autocomplete model="to[$index]" on-autocomplete="selectResident" required-field="$index == 0 ? true:false && requiredField" unique="$index"></directory-autocomplete>
+  </div>
+  <button ng-hide="$index == to.length - 1" class="btn-floating waves-effect waves-light red absolute bottom right zero focus-outline" ng-click="removeTo($index)"><i class="material-icons">remove</i></button>
+  <button ng-hide="$index != to.length - 1" class="btn-floating waves-effect waves-light theme-dark absolute bottom right zero focus-outline" ng-click="addTo()" ng-disabled="to[to.length - 1] == undefined"><i class="material-icons">add</i></button>
+</div>

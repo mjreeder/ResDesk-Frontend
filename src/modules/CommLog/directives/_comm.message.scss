@@ -1,0 +1,20 @@
+.comm-card {
+  position: relative;
+  .card-title {
+    margin-bottom: 0;
+  }
+  .card-from {
+    font-size: 11px;
+  }
+  .card-to {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: default;
+  }
+  .card-delete {
+    position: absolute;
+    top: 0.75rem;
+    right: 3.5rem;
+  }
+}

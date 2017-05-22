@@ -1,0 +1,30 @@
+<div class="content-body cash-log-body">
+  <div class="function-bar">
+    <form>
+      <div class="row sort-title">
+        <p>Date Sort</p>
+      </div>
+      <div class="row">
+        <div class="col s10 m6">
+          <div class="input-field">
+            <input id="dateFilterStart" ng-model="dateFilterStart" type="datetime" class="datepicker" required autocomplete="off" ng-change="startFilter(dateFilterStart)">
+            <label for="dateFilterStart"><i class="material-icons">event</i><span> From: </span></label>
+          </div>
+        </div>
+        <div class="col s10 m6">
+          <div class="input-field">
+            <input id="dateFilterEnd" ng-model="dateFilterEnd" type="datetime" class="datepicker" required autocomplete="off" ng-change="endFilter(dateFilterEnd)">
+            <label for="dateFilterEnd"><i class="material-icons">event</i><span> To: </span></label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="history-table">
+    <material-table table-data="tableData" filter-by="[dateFilterStart,dateFilterEnd]" body-cell-ng-class-func="ngClassFilter" custom-filter="dateRange" row-click-action="rowClick"></material-table>
+  </div>
+  <div class="row">
+    <h6 class="expected-total">Expected Total: {{tableData.defaultCash | currency: $}}</h6>
+  </div>
+  <loading-indicator size="large" ng-if="loading"></loading-indicator>
+</div>

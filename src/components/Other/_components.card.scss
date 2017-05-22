@@ -1,0 +1,93 @@
+.card,
+.card-expandable {
+  overflow: hidden;
+  position: relative;
+  max-width: 600px;
+  &.ng-leave,
+  &.ng-enter {
+    transition-duration: 0s;
+    animation-duration: 0s;
+  }
+  .card-bottom-pad {
+    height: 50px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent, white);
+    text-align: center;
+    transition: background .8s cubic-bezier(0, 1, 0, 1);
+    > a {
+      text-align: center;
+      margin: 25px auto 0px auto;
+      display: inline-block;
+      font-weight: 300;
+      position: relative;
+      &::after {
+        opacity: 0;
+        transform: translate(-50%, 50%);
+        color: white;
+        font-size: 0.8rem;
+        background-color: rgba($blue-grey-darken-3, 0.6);
+        border-radius: 50px;
+        padding: 1px 7px;
+        content: "Expand";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transition: all .3s ease-in-out;
+      }
+      &:hover::after {
+        background-color: rgba($blue-grey-darken-3, 0.9);
+      }
+    }
+  }
+  &.limit-height {
+    max-height: 200px;
+    transition: max-height .8s cubic-bezier(0, 1, 0, 1);
+  }
+  &:hover {
+    .card-bottom-pad > a::after {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  &.expand {
+    .card-bottom-pad {
+      background: transparent;
+      transition: background 0.8s ease-in-out;
+      > a::after {
+        content: "Collapse";
+      }
+    }
+  }
+  &.disabled {
+    background-color: rgba(color('grey', 'darken-1'), 0.7);
+  }
+}
+
+.reminder-card {
+  position: relative;
+  min-height: 200px;
+  .card-from {
+    padding-bottom: 15px;
+  }
+  .fixed-action-btn {
+    position: absolute;
+    ul {
+      li {
+        margin: 5px 10px;
+        .btn-small {
+          height: 30px;
+          width: 30px;
+          line-height: 30px;
+          i.material-icons {
+            line-height: 30px;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}

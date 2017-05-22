@@ -1,0 +1,59 @@
+directory-autocomplete {
+  padding-bottom: 10px;
+  .input-field {
+    position: relative;
+    loading-indicator {
+      z-index: z(overlay);
+      top: 21px;
+      left: 19px;
+      .preloader-wrapper {}
+    }
+    .dir-autocomplete {
+      margin-bottom: 0px;
+    }
+    ul.dir-autocomplete-options {
+      margin-left: 3rem;
+      background-color: $background-white;
+      overflow-y: auto;
+      overflow-x: hidden;
+      animation: autocomplete-expand 0.1s linear both;
+      .option {
+        height: 46px;
+        width: 100%;
+        padding: 5px;
+        text-indent: 1rem;
+        line-height: 33px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.3s;
+        &:hover, &.selected {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        &.disabled {
+          cursor: default;
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+      
+      &.ng-hide,
+      &.ng-remove-active {
+        animation: autocomplete-expand 0.1s linear reverse both;
+      }
+    }
+  }
+}
+
+@keyframes autocomplete-expand {
+  from {
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    height: 200px;
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="navbar-fixed">
+  <nav class="top-nav red darken-3">
+    <div class="container">
+      <a class="button-collapse top-nav full hide-on-large-only" data-activites="nav-mobile" ng-click="$nav.showSideNav()" click-anywhere-but-here="$nav.hideSideNav()" title="Navigation Menu"> <i class="material-icons">menu</i> </a>
+      <div class="nav-wrapper">
+        <div class="col s12 m6">
+          <h1 class="current-page">{{$state.current.data.friendlyName}}</h1> </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div id="slide-out" class="side-nav fixed grey lighten-4" ng-class="[$nav.sideNavVisible ? 'visible': '']">
+  <div class="flex-body">
+    <ul class="flex-grow">
+      <li class="user">
+        <div class="userView"> <img class="background noselect" src="./assets/images/housing_background.JPG" /> <span class="logout waves-effect waves-dark" ng-click="$user.logout()" title="Logout"><i class="material-icons">exit_to_app</i></span> <span class="notifications waves-effect waves-dark" ui-sref="Notifications" ui-sref-active="active" alt="{{$user.unreadNotifications}}" title="Notifications: {{$user.unreadNotifications}}" ng-class="$user.unreadNotifications == 0 ? 'none':''"><i class="material-icons">notifications</i></span> <span class="settings waves-effect waves-dark" ui-sref="Settings" ui-sref-active="active" title="Settings"><i class="material-icons">settings</i></span>
+          <div class="info"> <a class="nohover"><span class="name" title="{{$user.getUserInfo().name}}">{{$user.getUserInfo().name}}</span></a> <a class="nohover"><span class="email" title="{{$user.getUserInfo().email}}">{{$user.getUserInfo().email}}</span></a> </div>
+        </div>
+      </li>
+      <li class="waves-effect waves-red" ng-repeat="page in $nav.getPages()" ui-sref-active="nav-current"> <a ui-sref="{{page.sref}}"><i class="material-icons left">{{page.icon}}</i>{{page.name}}</a> </li>
+      <li ng-if="$user.isAdmin()">
+        <div class="divider"></div>
+      </li>
+      <li ng-if="$user.isAdmin()" class="waves-effect waves-red" ng-repeat="page in $nav.getAdminPages()" ui-sref-active="nav-current"> <a ui-sref="{{page.sref}}"><i class="material-icons left">{{page.icon}}</i>{{page.name}}</a> </li>
+    </ul>
+    <div class="flex-static footer-copyright sidenav-footer red darken-3">
+      <div class="container"> &copy; 2017 ResDesk </div>
+    </div>
+  </div>
+</div>
+<div id="sidenav-overlay" ng-if="$nav.sideNavVisible" class="animate-if"></div>

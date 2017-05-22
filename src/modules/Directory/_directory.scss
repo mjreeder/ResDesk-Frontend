@@ -1,0 +1,24 @@
+.dir-body {
+  position: relative;
+  overflow: visible;
+  
+  .divider {
+    margin-bottom: 20px;
+  }
+  
+  .row {
+    > * {
+      text-align: center;
+    }
+  }
+  
+  .dir-card-wrapper {
+    
+  }
+  
+  loading-indicator {
+    top: 250px;
+    transform: translate(-50%, 0);
+    z-index: 1000;
+  }
+}

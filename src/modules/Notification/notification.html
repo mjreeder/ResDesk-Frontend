@@ -1,0 +1,26 @@
+<div class="notification-body content-body">
+  <div class="function-bar">
+    <form>
+      <div class="input-field">
+        <a class="waves-effect waves-light btn green darken-1" ng-click="markAllRead()"><i class="material-icons left white-text" ng-click="clearSearch()">check</i>Mark All Read</a>
+      </div>
+      <div class="input-field">
+        <a class="waves-effect waves-light btn red darken-1" ng-click="markAllUnread()"><i class="material-icons left white-text" ng-click="clearSearch()">close</i>Mark All Unread</a>
+      </div>
+    </form>
+  </div>
+  <div class="notification-messages-wrapper upscale-flex-container no-stretch">
+    <div class="card upscale-flex-item" ng-repeat="item in notifications" ng-class="{'unread': !item.read}">
+      <div class="card-content grey-text">
+        <div class="left-pane">
+          <span class="read-icon" title="{{item.read ? 'Mark as Unread':'Mark as Read'}}" ng-click="toggleReadStatus(item)"></span>
+        </div>
+        <div class="right-pane">
+          <h3 class="card-title">{{item.title}} </h3>
+          <p>{{item.content}}</p>
+        </div>
+      </div>
+    </div>
+    <h6 class="center-align" ng-if="notifications.length == 0">You have no notifications to read 👍</h6>
+  </div>
+</div>

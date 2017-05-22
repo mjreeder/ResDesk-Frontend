@@ -1,0 +1,24 @@
+.reminder-card {
+  position: relative;
+  min-height: 200px;
+  .card-from {
+    padding-bottom: 15px;
+  }
+  .fixed-action-btn {
+    position: absolute;
+    ul {
+      li {
+        margin: 5px 10px;
+        .btn-small {
+          height: 30px;
+          width: 30px;
+          line-height: 30px;
+          i.material-icons {
+            line-height: 30px;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.hover-grow-shadow {
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+  }
+}
+
+.hover-bob {
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  &:hover,
+  &:active,
+  &:focus {
+    animation-name: hover-bob-float, hover-bob;
+    animation-duration: .3s, 1.5s;
+    animation-delay: 0s, .3s;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards;
+    animation-direction: normal, alternate;
+  }
+  @keyframes hover-bob {
+    0% {
+      transform: translateY(-8px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+    100% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hover-bob-float {
+    to {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+.hover-float {
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  transition: transform 0.3s ease-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    transform: translateY(-8px);
+  }
+}

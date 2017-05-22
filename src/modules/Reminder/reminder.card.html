@@ -1,0 +1,33 @@
+<div class="card upscale-flex-item reminder-card" ng-class="{'disabled': !item.active}" ng-hide="activeOnly && !item.active">
+  <div class="card-content grey-text">
+    <div class="row">
+      <div class="col s9">
+        <h3 class="card-title">{{item.title}} </h3>
+        <div class="card-to">Applies to {{item.settings.appliesTo}}</div>
+        <p>{{item.description}}</p>
+      </div>
+      <div class="col s3">
+        <span class="card-from">Fires {{ 'on ' + item.settings.firesOn.event || 'at ' + item.settings.firesOn.time }}
+        <br />{{item.settings.firesOn.offset}} minute offset
+        <br />{{item.settings.repeats ? 'Repeating':''}}
+        </span>
+        <div class="fixed-action-btn horizontal click-to-toggle">
+          <a class="btn-floating btn red" title="Edit Menu">
+            <i class="material-icons">mode_edit</i>
+          </a>
+          <ul>
+            <li title="Delete" ng-click="deleteItem()"><a class="btn-floating btn-small red darken-1"><i class="material-icons">delete</i></a></li>
+            <li title="Edit" ><a class="btn-floating btn-small yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+<!--            <li><a class="btn-floating btn-small blue"><i class="material-icons">attach_file</i></a></li>-->
+            <li title="{{item.active ? 'Mark Disabled':'Mark Enabled'}}" ng-click="item.active = !item.active">
+              <a class="btn-floating btn-small green">
+                <i ng-if="item.active" class="material-icons">check_box</i>
+                <i ng-if="!item.active" class="material-icons">check_box_outline_blank</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

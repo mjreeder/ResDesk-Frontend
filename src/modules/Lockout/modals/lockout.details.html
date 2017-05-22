@@ -1,0 +1,25 @@
+<div id="material-modal" class="modal modal-fixed-footer" tabindex="-1" ng-esc="close()" ng-enter="submit()">
+  <div class="modal-content relative">
+    <h4 class="modal-title">Lockout Details</h4>
+    <span class="absolute top right">
+      <loading-indicator size="small" ng-if="loading"></loading-indicator>
+    </span>
+    <div class="modal-content-body">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <div class="row">
+            <h4 class="relative">{{givenData.name.value}}</h4>
+          </div>
+        </li>
+        <li class="collection-item" ng-repeat="lockout in lockouts">
+          <div>{{lockout.hall}} on {{lockout.createdAt | date:'medium'}}
+            <a ng-if="$user.isAdmin()" ng-click="delete(lockout)"><i class="material-icons right">delete</i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="modal-action modal-close waves-effect waves-red btn-flat" ng-click="close()">Close</button>
+  </div>
+</div>

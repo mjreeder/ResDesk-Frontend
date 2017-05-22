@@ -1,0 +1,46 @@
+#material-table {
+  thead {
+    th {
+      text-indent: 0.5rem;
+      &.sortable {
+        cursor: pointer;
+        i.filter-arrow {
+          color: $light-blue-darken-4;
+          font-weight: normal;
+          font-style: normal;
+          margin-right: 5px;
+          font-size: 1rem;
+          line-height: 1.2rem;
+          &::after {
+            content: "\25A1";
+          }
+        }
+        &.active {
+          i.filter-arrow::after {
+            content: "\25BE";
+            font-size: 1rem;
+          }
+        }
+        &.active-reverse {
+          i.filter-arrow::after {
+            content: "\25B4";
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      z-index: 1;
+      &.clickable {
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+        &:hover {
+          z-index: 1;
+          box-shadow: 0px 0px 2px $red-lighten-1;
+        }
+      }
+    }
+  }
+}

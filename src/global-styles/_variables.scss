@@ -1,0 +1,28 @@
+@import "../node_modules/materialize-css/sass/components/color";
+$zindex: ( modal: 1000, overlay: 900, sidenav: 12, sidenav-overlay: 11, nav: 10, header: 10, subnav: 9, footer: 2, body: 1);
+
+/* ex: z-index: z(modal) */
+
+@function z($label) {
+  @return map-get($zindex, $label);
+}
+
+$sidebar-width: 250px;
+$sidebar-footer-height: 50px;
+
+$red: color('red', 'base');
+$red-lighten-1: color('red', 'lighten-1');
+$red-lighten-2: color('red', 'lighten-2');
+$nav-selected-red: #ee6e73;
+$light-blue-darken-4: color('light-blue', 'darken-4');
+$blue-grey-lighten-5: color('blue-grey', 'lighten-5');
+$blue-grey-lighten-4: color('blue-grey', 'lighten-4');
+$blue-grey-lighten-3: color('blue-grey', 'lighten-3');
+$blue-grey-lighten-2: color('blue-grey', 'lighten-2');
+$blue-grey-lighten-1: color('blue-grey', 'lighten-1');
+$blue-grey: color('blue-grey', 'base');
+$blue-grey-darken-1: color('blue-grey', 'darken-1');
+$blue-grey-darken-2: color('blue-grey', 'darken-2');
+$blue-grey-darken-3: color('blue-grey', 'darken-3');
+$blue-grey-darken-4: color('blue-grey', 'darken-4');
+$background-white: #fafafa;
